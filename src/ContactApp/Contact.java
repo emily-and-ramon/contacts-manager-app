@@ -13,34 +13,42 @@ public class Contact {
         }
 
         public String getFirstName() {
+
             return this.firstName;
         }
 
         public String getLastName() {
+
             return this.lastName;
         }
 
         public String getPhoneNumber() {
+
             return this.phoneNumber;
         }
 
         public void setFirstName(String aFirstName) {
+
             this.firstName = aFirstName;
         }
 
         public void setLastName(String aLastName) {
+
             this.lastName = aLastName;
         }
 
         public void setPhoneNumber(String aPhoneNumber) {
+
             this.phoneNumber = aPhoneNumber;
         }
 
         public String contactInfo() {
+
             return firstName + " " + lastName + " " + phoneNumber;
         }
 
         public String sayHello() {
+
             return String.format("Hello from %s %s!", firstName, lastName, phoneNumber);
         }
 //        public static void main(String[] args) {
