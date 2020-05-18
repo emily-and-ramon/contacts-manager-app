@@ -58,10 +58,12 @@ public class ContactsApp {
 
 //        obj[0] = new Employee(100,"ABC");
         obj[0] = new Contact("Sam","Houston","4566789032");
+        obj[0] = new Contact("Emily", "Bowersox", "5555555");
 
 
             contactList.add("Ramon");
             contactList.add("Emily");
+            contactList.add(obj[0].contactInfo());
 //        Student justin = new Student("Justin R");
 
 
