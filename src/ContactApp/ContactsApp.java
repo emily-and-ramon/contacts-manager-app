@@ -1,6 +1,7 @@
 package ContactApp;
 
 import ContactApp.Contact;
+import org.w3c.dom.ls.LSOutput;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -8,6 +9,7 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class ContactsApp {
@@ -58,10 +60,12 @@ public class ContactsApp {
 
 //        obj[0] = new Employee(100,"ABC");
         obj[0] = new Contact("Sam","Houston","4566789032");
+        obj[0] = new Contact("Emily", "Bowersox", "5555555");
 
 
             contactList.add("Ramon");
             contactList.add("Emily");
+            contactList.add(obj[0].contactInfo());
 //        Student justin = new Student("Justin R");
 
 
@@ -72,6 +76,8 @@ public class ContactsApp {
 
         readFile(dataFile, true);
 
+        Scanner userInput = new Scanner(System.in);
+        userContactApp(userInput);
 
     }
 
@@ -102,6 +108,19 @@ public class ContactsApp {
             return null;
         }
     }
+
+
+
+    public static void userContactApp(Scanner userInput) {
+        System.out.println("Do you want to use our contact database (y/n)?");
+        String userInputStart = userInput.next().toLowerCase();
+        if (userInputStart.equals("y")) {
+            System.out.println("Oh good!");
+        } else {
+            System.exit(0); //
+        }
+    }
+
 
 }
 
