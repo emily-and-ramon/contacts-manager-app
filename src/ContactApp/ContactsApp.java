@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -71,13 +72,53 @@ public class ContactsApp {
 
             System.out.println(contactList);
 
+
+
+
+//        Scanner userInput = new Scanner(System.in);
+        Input input   = new Input();
+//        userContactApp();
+
+        System.out.println("1. View contacts.\n" +
+                "2. Add a new contact.\n" +
+                "3. Search a contact by name.\n" +
+                "4. Delete an existing contact.\n" +
+                "5. Exit.\n" +
+                "Enter an option (1, 2, 3, 4 or 5): ");
+        int numberSelection = input.getInt(1, 5);
+
+//        If user types 1 use this method.
+//        readFile(dataFile, true);
+
+
+        if (numberSelection == 1) {
+            System.out.println("\n");
+                readFile(dataFile, true);
+                System.out.println("\n");
+        } else if (numberSelection == 2) {
+            System.out.println("What is the first name of the contact you want to add?");
+            String firstNameInput = input.getString();
+            System.out.println("What is the last name of the contact you want to add?");
+            String lastNameInput = input.getString();
+            System.out.println("What is the new contact's phone number?");
+            String phoneNumberInput = input.getString();
+            obj[0] = new Contact(firstNameInput, lastNameInput, phoneNumberInput);
+            contactList.add(obj[0].contactInfo());
+            writeFile(dataFile, contactList);
+        }
+//        switch (userInput)
+//        {
+//            case 1:
+////    case 1: //View all movies
+//                System.out.println("\n");
+//                readFile(dataFile, true);
+//                System.out.println("\n");
+//                break;
+//        }
+
+//    If user types 2 use this method.
         writeFile(dataFile, contactList);
 
-
-        readFile(dataFile, true);
-
-        Scanner userInput = new Scanner(System.in);
-        userContactApp(userInput);
 
     }
 
@@ -120,6 +161,8 @@ public class ContactsApp {
             System.exit(0); //
         }
     }
+
+
 
 
 }
