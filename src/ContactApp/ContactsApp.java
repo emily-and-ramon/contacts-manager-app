@@ -106,6 +106,19 @@ public class ContactsApp {
             obj[0] = new Contact(firstNameInput, lastNameInput, phoneNumberInput);
             contactList.add(obj[0].contactInfo());
 //            writeFile(dataFile, contactList);
+        } else if (numberSelection == 3) {
+            System.out.println("What's the first name of the person you are trying to search for?");
+            String nameSearch = input.getString();
+//            contactList.getFirstName()
+//            if (contactList.contains(nameSearch)) {
+//                System.out.println(contact.contactInfo());
+//            }
+                for (Contact contact : contactList)
+                    //NEXT STEP!!!!!!!!!!!!!!!!
+                    //turn the string line into a contact object
+                    if(nameSearch.equals(contact.getFirstName())) {
+                        System.out.println(contact.contactInfo());
+                    };
         }
 //        switch (userInput)
 //        {
