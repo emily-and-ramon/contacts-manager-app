@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -57,17 +58,17 @@ public class ContactsApp {
 //            ArrayList<String> contactList = new ArrayList<>();
             List<String> contactList = new ArrayList<>();
 //        Employee[] obj = new Employee[2] ;
-        Contact [] obj = new Contact[2];
+        Contact [] obj = new Contact[1];
 
 //        obj[0] = new Employee(100,"ABC");
-        obj[0] = new Contact("Sam","Houston","4566789032");
-        obj[0] = new Contact("Emily", "Bowersox", "5555555");
+//        obj[0] = new Contact("Sam","Houston","4566789032");
+//        obj[1] = new Contact("Emily", "Bowersox", "5555555");
 
-
-            contactList.add("Ramon");
-            contactList.add("Emily");
-            contactList.add(obj[0].contactInfo());
-//        Student justin = new Student("Justin R");
+//            contactList.add("Ramon");
+//            contactList.add("Emily");
+//            contactList.add(obj[0].contactInfo());
+//            contactList.add(obj[1].contactInfo());
+////        Student justin = new Student("Justin R");
 
 
             System.out.println(contactList);
@@ -104,7 +105,20 @@ public class ContactsApp {
             String phoneNumberInput = input.getString();
             obj[0] = new Contact(firstNameInput, lastNameInput, phoneNumberInput);
             contactList.add(obj[0].contactInfo());
-            writeFile(dataFile, contactList);
+//            writeFile(dataFile, contactList);
+        } else if (numberSelection == 3) {
+            System.out.println("What's the first name of the person you are trying to search for?");
+            String nameSearch = input.getString();
+//            contactList.getFirstName()
+//            if (contactList.contains(nameSearch)) {
+//                System.out.println(contact.contactInfo());
+//            }
+                for (Contact contact : contactList)
+                    //NEXT STEP!!!!!!!!!!!!!!!!
+                    //turn the string line into a contact object
+                    if(nameSearch.equals(contact.getFirstName())) {
+                        System.out.println(contact.contactInfo());
+                    };
         }
 //        switch (userInput)
 //        {
@@ -119,13 +133,14 @@ public class ContactsApp {
 //    If user types 2 use this method.
         writeFile(dataFile, contactList);
 
-
+//end of main method
     }
 
     public static void writeFile(Path aFile, List<String> aList){
         try {
-            Files.write(aFile, aList);
-//            Files.write(aFile, aList, StandardOpenOption.APPEND);
+//            Files.write(aFile, aList);
+            Files.write(aFile, aList, StandardOpenOption.APPEND);
+            //, StandardOpenOption.APPEND
         } catch (IOException e){
             System.out.println("Problems writing in the file");
             e.printStackTrace();
